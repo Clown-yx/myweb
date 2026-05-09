@@ -1,0 +1,262 @@
+% !TEX program = xelatex
+\documentclass[10pt,a4paper]{ctexart}
+
+% ============ Packages ============
+\usepackage[top=1.8cm,bottom=1.8cm,left=2cm,right=2cm]{geometry}
+\usepackage{fontspec}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fontawesome5}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+
+% ============ Fonts ============
+\setCJKmainfont{Microsoft YaHei}[BoldFont=Microsoft YaHei Bold]
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+
+% ============ Colors (match website theme) ============
+\definecolor{accent}{HTML}{6c5ce7}
+\definecolor{accent2}{HTML}{00d2ff}
+\definecolor{dark}{HTML}{1a1a2e}
+\definecolor{textgray}{HTML}{666666}
+\definecolor{lightgray}{HTML}{e8e8e8}
+\definecolor{bg}{HTML}{fafafa}
+
+% ============ Page style ============
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyfoot[C]{\small\color{textgray} 郭云翔 · 个人简历 · \thepage}
+
+% ============ Custom section titles ============
+\newcommand{\cvsection}[1]{%
+  \vspace{8pt}
+  \noindent
+  \begin{tikzpicture}
+    \node[inner sep=0] (A) {\Large\bfseries #1};
+    \fill[accent] ([yshift=-4pt]A.south west) rectangle ([yshift=-5.5pt]A.south east);
+  \end{tikzpicture}
+  \vspace{6pt}
+}
+
+% ============ Sidebar macro ============
+\newcommand{\sidebaritem}[3]{
+  \begin{minipage}[t]{\textwidth}
+    \textbf{\small #1}\\[1pt]
+    {\small\color{textgray} #2}\\[1pt]
+    {\footnotesize\color{textgray} #3}
+  \end{minipage}
+}
+
+% ============ Hyperlink format ============
+\hypersetup{
+  colorlinks=true,
+  linkcolor=accent,
+  urlcolor=accent,
+  citecolor=accent
+}
+
+% ============ Spacing ============
+\setstretch{1.15}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+
+% Remove page numbers from empty pages, just keep them minimal
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyfoot[C]{\small\color{textgray} 郭云翔 · 个人简历 · \thepage}
+}
+
+\begin{document}
+
+% ==================== HEADER ====================
+\noindent
+\begin{minipage}[t]{0.68\textwidth}
+  \vspace{6pt}
+  {\fontsize{28}{34}\selectfont\bfseries 郭云翔}
+  \vspace{4pt}
+
+  {\large\color{textgray} 应用物理学（强基计划）· 北京航空航天大学}
+
+  {\color{textgray} 2024级本科生 · 北京}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.28\textwidth}
+  \vspace{12pt}
+  \begin{flushright}
+    {\small\faEnvelope\enspace \href{mailto:3191156375@qq.com}{3191156375@qq.com}} \\[3pt]
+    {\small\faGlobe\enspace \href{https://clown-yx.github.io/myweb/}{clown-yx.github.io/myweb}}
+  \end{flushright}
+\end{minipage}
+
+\vspace{4pt}
+{\color{accent}\noindent\rule{\textwidth}{1.2pt}}
+\vspace{8pt}
+
+% ==================== SELF-INTRODUCTION ====================
+\cvsection{关于我}
+
+{\small 用\textbf{数据和技术手段}解决实际问题。物理背景赋予了我严谨的\textbf{分析框架与建模思维}，数模竞赛锻炼了在有限时间内将复杂问题抽象求解的能力，科普与开发实践则让我习惯于把方案拆解落地、协调多方资源。对\textbf{互联网产品、科技咨询与金融分析}方向保持探索热情，正在寻找实习机会以积累行业经验。}
+
+\vspace{6pt}
+
+% ==================== EDUCATION ====================
+\cvsection{教育背景}
+
+\noindent
+\begin{minipage}[t]{0.78\textwidth}
+  \textbf{北京航空航天大学} \quad 应用物理学（\textbf{强基计划}）· 理学学士在读
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.2\textwidth}
+  \begin{flushright}
+    {\small\color{textgray} 2024.09 -- 至今}
+  \end{flushright}
+\end{minipage}
+
+\vspace{3pt}
+\begin{itemize}[nosep,leftmargin=1.2em]
+  \item[\color{accent}\textbullet] 获\textbf{校级三好学生}
+  \item[\color{accent}\textbullet] 学术基础扎实
+  \item[\color{accent}\textbullet] \textbf{中共预备党员}
+  \item[\color{accent}\textbullet] 核心课程：\textbf{Python}、数学分析、概率统计、线性代数、理论力学、热力学及统计物理、\textbf{机器学习}
+\end{itemize}
+
+\vspace{6pt}
+
+% ==================== SKILLS ====================
+\cvsection{技能栈}
+
+\noindent
+\begin{minipage}[t]{0.32\textwidth}
+  {\small\color{accent}\textbf{编程与数据分析}} \\[3pt]
+  {\small Python · C · NumPy · HTML/CSS/JS}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.32\textwidth}
+  {\small\color{accent}\textbf{建模与机器学习}} \\[3pt]
+  {\small scikit-learn · 数学建模 · MATLAB · Origin}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.32\textwidth}
+  {\small\color{accent}\textbf{工具与效率}} \\[3pt]
+  {\small LaTeX · AI编程助手 · Git · Office}
+\end{minipage}
+
+\vspace{6pt}
+
+% ==================== PROJECTS ====================
+\cvsection{项目经历}
+
+% --- Project 1 ---
+\vspace{2pt}
+\noindent
+\begin{minipage}[t]{0.78\textwidth}
+  \textbf{科创星光计划} \quad {\small\color{textgray}中国志愿服务基金会}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.2\textwidth}
+  \begin{flushright}
+    {\small\color{textgray} 2024 -- 至今}
+  \end{flushright}
+\end{minipage}
+
+\vspace{2pt}
+{\small 主责中小学生科普活动策划执行、课程设计讲授及线上科普直播。牵头筹备\textbf{新疆大型科普活动}，联动北航教授专家、大学生团队、政府及企业资源，搭建高校与偏远地区中学的教育桥梁。具备\textbf{跨部门资源协调与团队统筹}能力。}
+
+\vspace{4pt}
+{\footnotesize\color{accent} \faTags\enspace 活动策划 \quad 团队管理 \quad 课程设计 \quad 跨部门协调}
+
+% --- Project 2 ---
+\vspace{8pt}
+\noindent
+\begin{minipage}[t]{0.78\textwidth}
+  \textbf{个人主页项目} \quad {\small\color{textgray}独立开发 · AI辅助}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.2\textwidth}
+  \begin{flushright}
+    {\small\color{textgray} 2025.03 -- 2025.04}
+  \end{flushright}
+\end{minipage}
+
+\vspace{2pt}
+{\small 独立设计并开发个人品牌主页，使用 HTML/CSS/JS 实现响应式布局与深色主题。借助\textbf{AI 编程助手（Claude Code）}完成全流程开发，部署于\textbf{GitHub Pages}，具备中英文双语切换、动效交互与移动端适配能力。}
+
+\vspace{4pt}
+{\footnotesize\color{accent} \faTags\enspace HTML/CSS/JS \quad AI辅助开发 \quad GitHub Pages \quad 响应式设计}
+
+% --- Project 3 ---
+\vspace{8pt}
+\noindent
+\begin{minipage}[t]{0.78\textwidth}
+  \textbf{数学建模竞赛} \quad {\small\color{textgray}建模手 · 论文手}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.2\textwidth}
+  \begin{flushright}
+    {\small\color{textgray} 2025.09}
+  \end{flushright}
+\end{minipage}
+
+\vspace{2pt}
+{\small 担任\textbf{建模手与论文手}，将实际问题抽象为数学模型，使用 Python 进行数据处理与模型求解，以 \textbf{LaTeX} 完成竞赛论文排版。在\textbf{有限时间内高效完成}从建模到写作的全流程，锻炼了团队协作与快速学习能力。}
+
+\vspace{4pt}
+{\footnotesize\color{accent} \faTags\enspace 数学建模 \quad Python \quad LaTeX \quad 数据分析}
+
+% --- Project 4 ---
+\vspace{8pt}
+\noindent
+\begin{minipage}[t]{0.78\textwidth}
+  \textbf{凝聚态物理课题组} \quad {\small\color{textgray}北航物理学院 · 科研学习}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.2\textwidth}
+  \begin{flushright}
+    {\small\color{textgray} 2025.10 -- 至今}
+  \end{flushright}
+\end{minipage}
+
+\vspace{2pt}
+{\small 加入凝聚态物理课题组进行科研学习，掌握\textbf{文献调研与科研方法论}，熟悉计算物理工具。同期完成 Python 课程设计项目——\textbf{矩阵计算器}，具备将物理问题转化为数值计算方案的实践能力。}
+
+\vspace{4pt}
+{\footnotesize\color{accent} \faTags\enspace 凝聚态物理 \quad Python \quad 数值计算 \quad 科研方法论}
+
+\vspace{8pt}
+
+% ==================== ADDITIONAL ====================
+\cvsection{其他信息}
+
+\noindent
+\begin{minipage}[t]{0.48\textwidth}
+  \begin{itemize}[nosep,leftmargin=1.2em]
+    \item[\color{accent}\textbullet] \textbf{志愿服务}：累计 218.5 小时
+    \item[\color{accent}\textbullet] \textbf{政治面貌}：中共预备党员
+  \end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+  \begin{itemize}[nosep,leftmargin=1.2em]
+    \item[\color{accent}\textbullet] \textbf{语言}：中文（母语）· 英语
+    \item[\color{accent}\textbullet] \textbf{证书/荣誉}：校级三好学生
+  \end{itemize}
+\end{minipage}
+
+\vspace{12pt}
+{\color{accent}\noindent\rule{\textwidth}{0.6pt}}
+
+\vspace{4pt}
+\begin{center}
+{\small\color{textgray} 个人主页: \href{https://clown-yx.github.io/myweb/}{clown-yx.github.io/myweb} \quad | \quad 邮箱: \href{mailto:3191156375@qq.com}{3191156375@qq.com}}
+\end{center}
+
+\end{document}
