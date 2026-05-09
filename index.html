@@ -165,6 +165,15 @@
     }
     .project-link { font-size: 0.85rem; color: var(--accent2); transition: var(--transition); }
     .project-link:hover { text-decoration: underline; }
+    .project-card.full { grid-column: 1 / -1; }
+    .project-card.placeholder {
+      border: 2px dashed var(--border); background: rgba(255,255,255,0.015);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; min-height: 200px;
+    }
+    .project-card.placeholder:hover { background: rgba(255,255,255,0.025); transform: none; border-color: rgba(255,255,255,0.15); }
+    .project-card.placeholder h3 { font-size: 1rem; color: var(--text-secondary); margin-bottom: 8px; }
+    .project-card.placeholder p { font-size: 0.8rem; color: var(--text-secondary); opacity: 0.6; }
 
     /* ========== Poster Gallery ========== */
     .poster-gallery { margin-top: 18px; }
@@ -394,7 +403,8 @@
   <div class="section-inner">
     <h2 class="section-title fade-in" data-zh="项目经历" data-en="Projects">项目经历</h2>
     <div class="projects-grid fade-in">
-      <div class="project-card">
+      <!-- ===== 科创星光计划: 全宽 ===== -->
+      <div class="project-card full">
         <h3 data-zh="科创星光计划" data-en="Sci-Tech Star Program">科创星光计划</h3>
         <p class="period" data-zh="中国志愿服务基金会 · 项目成员 / 科普讲师" data-en="CVSF · Member / Lecturer">中国志愿服务基金会 · 项目成员 / 科普讲师</p>
         <p class="desc" data-zh="主责中小学生科普活动策划执行、课程设计讲授及线上科普直播。2025年暑期正牵头筹备新疆大型科普活动，联动北航教授专家、大学生团队、政府及企业资源，搭建高校与偏远地区中学的教育桥梁，活动预计获权威媒体报道。"
@@ -414,6 +424,27 @@
           </div>
         </div>
       </div>
+
+      <!-- ===== 随爱行·新疆支教 ===== -->
+      <div class="project-card">
+        <h3 data-zh="随爱行·新疆支教实践" data-en="SuiAiXing · Xinjiang Teaching">随爱行·新疆支教实践</h3>
+        <p class="period" data-zh="队长 · 2025年暑期 · 21人团队 · 10天" data-en="Team Lead · Summer 2025 · 21 members · 10 days">队长 · 2025年暑期 · 21人团队 · 10天</p>
+        <p class="desc" data-zh="作为队长全程统筹组织领导，赴新疆完成支教调研。负责人员招募、工作分配、物料筹备、财务管理、教学对接、食宿出行、企业外联、宣传推广及应急处理，活动成果获当地电视台专题报道及个人采访，展现了出色的统筹管理与危机应对能力。"
+           data-en="Led a 21-person team to Xinjiang for a 10-day teaching and research mission. Oversaw recruitment, task delegation, logistics, budgeting, teaching coordination, accommodation, corporate outreach, promotion, and emergency response. The initiative received local TV coverage and a personal interview, demonstrating strong leadership and crisis management skills.">
+           作为队长全程统筹组织领导，赴新疆完成支教调研。负责人员招募、工作分配、物料筹备、财务管理、教学对接、食宿出行、企业外联、宣传推广及应急处理，活动成果获当地电视台专题报道及个人采访，展现了出色的统筹管理与危机应对能力。
+        </p>
+        <div class="tech-stack"><span>团队领导</span><span>项目管理</span><span>外联协调</span><span>媒体对接</span></div>
+        <div class="poster-gallery">
+          <h4 class="poster-label" data-zh="📸 活动掠影" data-en="📸 Activity Photos">📸 活动掠影</h4>
+          <div class="poster-scroll">
+            <img src="随爱行1.jpg" loading="lazy" alt="随爱行活动照片1" onclick="openLightbox(this.src)">
+            <img src="随爱行2.jpg" loading="lazy" alt="随爱行活动照片2" onclick="openLightbox(this.src)">
+            <img src="随爱行3.jpg" loading="lazy" alt="随爱行活动照片3" onclick="openLightbox(this.src)">
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== 个人主页项目 ===== -->
       <div class="project-card">
         <h3 data-zh="个人主页项目" data-en="Personal Homepage">个人主页项目</h3>
         <p class="period">2025.03 - 2025.04</p>
@@ -424,6 +455,8 @@
         <div class="tech-stack"><span>HTML/CSS/JS</span><span>AI辅助开发</span><span>GitHub Pages</span></div>
         <a class="project-link" href="https://github.com/clown-yx/myweb" target="_blank">GitHub →</a>
       </div>
+
+      <!-- ===== 数学建模竞赛 ===== -->
       <div class="project-card">
         <h3 data-zh="数学建模竞赛" data-en="Math Modeling Competition">数学建模竞赛</h3>
         <p class="period">2025.09</p>
@@ -433,6 +466,8 @@
         </p>
         <div class="tech-stack"><span>数学建模</span><span>Python</span><span>LaTeX</span><span>团队协作</span></div>
       </div>
+
+      <!-- ===== 凝聚态物理课题组 ===== -->
       <div class="project-card">
         <h3 data-zh="凝聚态物理课题组" data-en="Condensed Matter Physics Group">凝聚态物理课题组</h3>
         <p class="period">2025.10 - 至今</p>
@@ -441,6 +476,24 @@
            加入北航物理学院凝聚态物理课题组，学习科研方法论与文献调研，熟悉计算物理工具与科研流程。期间完成 Python 课程设计项目——矩阵计算器，具备将物理问题转化为数值计算方案的实践能力。
         </p>
         <div class="tech-stack"><span>凝聚态物理</span><span>Python</span><span>数值计算</span><span>科研方法论</span></div>
+      </div>
+
+      <!-- ===== 朋辈心理辅导 ===== -->
+      <div class="project-card">
+        <h3 data-zh="朋辈心理辅导 · 暖心使者" data-en="Peer Counselor · Warm Heart Ambassador">朋辈心理辅导 · 暖心使者</h3>
+        <p class="period" data-zh="北航积极心理体验中心 · 长期志愿服务" data-en="BUAA Positive Psychology Center · Ongoing">北航积极心理体验中心 · 长期志愿服务</p>
+        <p class="desc" data-zh="经系统化专业培训后被聘为校级"暖心使者"（朋辈心理咨询师），长期为在校同学提供专业、可靠的心理支持服务，在倾听与陪伴中践行关怀与奉献的价值。"
+           data-en="Appointed as a peer counselor ('Warm Heart Ambassador') after systematic professional training at BUAA Positive Psychology Center. Provides long-term, professional psychological support to fellow students — embodying care and companionship through listening and being present.">
+           经系统化专业培训后被聘为校级"暖心使者"（朋辈心理咨询师），长期为在校同学提供专业、可靠的心理支持服务，在倾听与陪伴中践行关怀与奉献的价值。
+        </p>
+        <div class="tech-stack"><span>心理咨询</span><span>朋辈辅导</span><span>志愿公益</span></div>
+        <img src="nxsz.jpg" loading="lazy" alt="暖心使者证书" style="width:100%;max-width:260px;margin-top:14px;border-radius:8px;border:1px solid var(--border);cursor:pointer" onclick="openLightbox(this.src)">
+      </div>
+
+      <!-- ===== 未完待续 ===== -->
+      <div class="project-card placeholder">
+        <h3 data-zh="✨ 未完待续" data-en="✨ More Coming Soon">✨ 未完待续</h3>
+        <p data-zh="更多项目经历正在补充中..." data-en="More projects being added...">更多项目经历正在补充中...</p>
       </div>
     </div>
   </div>
@@ -518,7 +571,7 @@
 
 <!-- ==================== Lightbox ==================== -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
-  <button class="lightbox-close" onclick="document.getElementById('lightbox').classList.remove('active')">&times;</button>
+  <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
   <img id="lightboxImg" src="" alt="海报预览">
 </div>
 
@@ -612,10 +665,9 @@
     document.body.style.overflow = 'hidden';
   }
   function closeLightbox(e) {
-    if (e.target === e.currentTarget) {
-      document.getElementById('lightbox').classList.remove('active');
-      document.body.style.overflow = '';
-    }
+    if (e && e.target !== e.currentTarget) return;
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
   }
 </script>
 </body>
