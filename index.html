@@ -166,6 +166,39 @@
     .project-link { font-size: 0.85rem; color: var(--accent2); transition: var(--transition); }
     .project-link:hover { text-decoration: underline; }
 
+    /* ========== Poster Gallery ========== */
+    .poster-gallery { margin-top: 18px; }
+    .poster-label { font-size: 0.85rem; color: var(--accent2); margin-bottom: 10px; font-weight: 600; }
+    .poster-scroll {
+      display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch; padding-bottom: 6px;
+      scrollbar-width: thin; scrollbar-color: rgba(108,92,231,0.3) transparent;
+    }
+    .poster-scroll::-webkit-scrollbar { height: 4px; }
+    .poster-scroll::-webkit-scrollbar-thumb { background: rgba(108,92,231,0.3); border-radius: 4px; }
+    .poster-scroll img {
+      height: 160px; flex-shrink: 0; border-radius: 8px;
+      border: 1px solid var(--border); cursor: pointer; scroll-snap-align: start;
+      transition: var(--transition);
+    }
+    .poster-scroll img:hover { border-color: var(--accent2); transform: scale(1.03); }
+
+    /* ========== Lightbox ========== */
+    .lightbox {
+      display: none; position: fixed; inset: 0; z-index: 9999;
+      background: rgba(0,0,0,0.92); backdrop-filter: blur(12px);
+      align-items: center; justify-content: center; flex-direction: column;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox img { max-width: 92vw; max-height: 82vh; border-radius: 10px; box-shadow: 0 0 60px rgba(108,92,231,0.2); }
+    .lightbox-close {
+      position: absolute; top: 24px; right: 32px; font-size: 2rem;
+      color: #fff; cursor: pointer; transition: var(--transition); z-index: 1;
+      width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
+      border-radius: 50%; background: rgba(255,255,255,0.08); border: none;
+    }
+    .lightbox-close:hover { background: rgba(255,255,255,0.2); }
+
     /* ========== Education ========== */
     .timeline { position: relative; padding-left: 24px; }
     .timeline::before {
@@ -369,6 +402,17 @@
            主责中小学生科普活动策划执行、课程设计讲授及线上科普直播。2025年暑期正牵头筹备新疆大型科普活动，联动北航教授专家、大学生团队、政府及企业资源，搭建高校与偏远地区中学的教育桥梁，活动预计获权威媒体报道。
         </p>
         <div class="tech-stack"><span>科普教育</span><span>活动策划</span><span>团队管理</span><span>课程设计</span></div>
+        <div class="poster-gallery">
+          <h4 class="poster-label" data-zh="📺 直播海报" data-en="📺 Live Stream Posters">📺 直播海报</h4>
+          <div class="poster-scroll">
+            <img src="haibao/3.7直播海报终版.jpg" loading="lazy" alt="3.7直播海报" onclick="openLightbox(this.src)">
+            <img src="haibao/PPT封面2.png" loading="lazy" alt="PPT封面" onclick="openLightbox(this.src)">
+            <img src="haibao/强基计划直播.jpg" loading="lazy" alt="强基计划直播" onclick="openLightbox(this.src)">
+            <img src="haibao/微信图片_20260410220752_510_110.jpg" loading="lazy" alt="直播海报4" onclick="openLightbox(this.src)">
+            <img src="haibao/海报.jpg" loading="lazy" alt="直播海报5" onclick="openLightbox(this.src)">
+            <img src="haibao/海报终版.png" loading="lazy" alt="海报终版" onclick="openLightbox(this.src)">
+          </div>
+        </div>
       </div>
       <div class="project-card">
         <h3 data-zh="个人主页项目" data-en="Personal Homepage">个人主页项目</h3>
@@ -472,6 +516,12 @@
   <p data-zh="Designed & Built by 郭云翔" data-en="Designed & Built by Yunxiang Guo">Designed & Built by 郭云翔</p>
 </footer>
 
+<!-- ==================== Lightbox ==================== -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="document.getElementById('lightbox').classList.remove('active')">&times;</button>
+  <img id="lightboxImg" src="" alt="海报预览">
+</div>
+
 <!-- ==================== Scripts ==================== -->
 <script>
   // ===== Bilingual Switch =====
@@ -554,6 +604,19 @@
       }
     });
   });
+
+  // ===== Lightbox =====
+  function openLightbox(src) {
+    document.getElementById('lightboxImg').src = src;
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox(e) {
+    if (e.target === e.currentTarget) {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
 </script>
 </body>
 </html>
