@@ -174,6 +174,10 @@
     .project-card.placeholder:hover { background: rgba(255,255,255,0.025); transform: none; border-color: rgba(255,255,255,0.15); }
     .project-card.placeholder h3 { font-size: 1rem; color: var(--text-secondary); margin-bottom: 8px; }
     .project-card.placeholder p { font-size: 0.8rem; color: var(--text-secondary); opacity: 0.6; }
+    .projects-row { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+    .project-card.peer-counselor { display: flex; gap: 24px; align-items: flex-start; }
+    .peer-content { flex: 1; }
+    .peer-img { width: 200px; flex-shrink: 0; margin-top: 0 !important; }
 
     /* ========== Poster Gallery ========== */
     .poster-gallery { margin-top: 18px; }
@@ -273,6 +277,9 @@
       .hero h1 { font-size: 2rem; }
       .about-grid { grid-template-columns: 1fr; }
       .projects-grid { grid-template-columns: 1fr; }
+      .projects-row { grid-template-columns: 1fr; }
+      .project-card.peer-counselor { flex-direction: column; }
+      .peer-img { width: 100%; max-width: 260px; }
       .contact-grid { grid-template-columns: 1fr; justify-items: center; }
       .qr-code { margin: 0 auto; width: 160px; height: 160px; }
       .section-inner { padding: 60px 20px; }
@@ -415,18 +422,17 @@
         <div class="poster-gallery">
           <h4 class="poster-label" data-zh="📺 直播海报" data-en="📺 Live Stream Posters">📺 直播海报</h4>
           <div class="poster-scroll">
+            <img src="haibao/海报终版.png" loading="lazy" alt="海报终版" onclick="openLightbox(this.src)">
             <img src="haibao/3.7直播海报终版.jpg" loading="lazy" alt="3.7直播海报" onclick="openLightbox(this.src)">
             <img src="haibao/PPT封面2.png" loading="lazy" alt="PPT封面" onclick="openLightbox(this.src)">
             <img src="haibao/强基计划直播.jpg" loading="lazy" alt="强基计划直播" onclick="openLightbox(this.src)">
-            <img src="haibao/微信图片_20260410220752_510_110.jpg" loading="lazy" alt="直播海报4" onclick="openLightbox(this.src)">
             <img src="haibao/海报.jpg" loading="lazy" alt="直播海报5" onclick="openLightbox(this.src)">
-            <img src="haibao/海报终版.png" loading="lazy" alt="海报终版" onclick="openLightbox(this.src)">
           </div>
         </div>
       </div>
 
       <!-- ===== 随爱行·新疆支教 ===== -->
-      <div class="project-card">
+      <div class="project-card full">
         <h3 data-zh="随爱行·新疆支教实践" data-en="SuiAiXing · Xinjiang Teaching">随爱行·新疆支教实践</h3>
         <p class="period" data-zh="队长 · 2025年暑期 · 21人团队 · 10天" data-en="Team Lead · Summer 2025 · 21 members · 10 days">队长 · 2025年暑期 · 21人团队 · 10天</p>
         <p class="desc" data-zh="作为队长全程统筹组织领导，赴新疆完成支教调研。负责人员招募、工作分配、物料筹备、财务管理、教学对接、食宿出行、企业外联、宣传推广及应急处理，活动成果获当地电视台专题报道及个人采访，展现了出色的统筹管理与危机应对能力。"
@@ -444,8 +450,9 @@
         </div>
       </div>
 
-      <!-- ===== 个人主页项目 ===== -->
-      <div class="project-card">
+      <div class="projects-row">
+        <!-- ===== 个人主页项目 ===== -->
+        <div class="project-card">
         <h3 data-zh="个人主页项目" data-en="Personal Homepage">个人主页项目</h3>
         <p class="period">2025.03 - 2025.04</p>
         <p class="desc" data-zh="独立设计并开发个人品牌主页，使用 HTML/CSS/JS 实现响应式布局与深色主题，借助 AI 编程助手（Claude Code）完成全流程开发。项目部署于 GitHub Pages，具备中英文双语切换、动效交互与移动端适配能力。"
@@ -478,16 +485,19 @@
         <div class="tech-stack"><span>凝聚态物理</span><span>Python</span><span>数值计算</span><span>科研方法论</span></div>
       </div>
 
+      </div>
       <!-- ===== 朋辈心理辅导 ===== -->
-      <div class="project-card">
-        <h3 data-zh="朋辈心理辅导 · 暖心使者" data-en="Peer Counselor · Warm Heart Ambassador">朋辈心理辅导 · 暖心使者</h3>
-        <p class="period" data-zh="北航积极心理体验中心 · 长期志愿服务" data-en="BUAA Positive Psychology Center · Ongoing">北航积极心理体验中心 · 长期志愿服务</p>
-        <p class="desc" data-zh="经系统化专业培训后被聘为校级"暖心使者"（朋辈心理咨询师），长期为在校同学提供专业、可靠的心理支持服务，在倾听与陪伴中践行关怀与奉献的价值。"
-           data-en="Appointed as a peer counselor ('Warm Heart Ambassador') after systematic professional training at BUAA Positive Psychology Center. Provides long-term, professional psychological support to fellow students — embodying care and companionship through listening and being present.">
-           经系统化专业培训后被聘为校级"暖心使者"（朋辈心理咨询师），长期为在校同学提供专业、可靠的心理支持服务，在倾听与陪伴中践行关怀与奉献的价值。
-        </p>
-        <div class="tech-stack"><span>心理咨询</span><span>朋辈辅导</span><span>志愿公益</span></div>
-        <img src="nxsz.jpg" loading="lazy" alt="暖心使者证书" style="width:100%;max-width:260px;margin-top:14px;border-radius:8px;border:1px solid var(--border);cursor:pointer" onclick="openLightbox(this.src)">
+      <div class="project-card peer-counselor">
+        <div class="peer-content">
+          <h3 data-zh="朋辈心理辅导 · 暖心使者" data-en="Peer Counselor · Warm Heart Ambassador">朋辈心理辅导 · 暖心使者</h3>
+          <p class="period" data-zh="北航积极心理体验中心 · 长期志愿服务" data-en="BUAA Positive Psychology Center · Ongoing">北航积极心理体验中心 · 长期志愿服务</p>
+          <p class="desc" data-zh="经系统化专业培训后被聘为校级"暖心使者"（朋辈心理咨询师），长期为在校同学提供专业、可靠的心理支持服务，在倾听与陪伴中践行关怀与奉献的价值。"
+             data-en="Appointed as a peer counselor ('Warm Heart Ambassador') after systematic professional training at BUAA Positive Psychology Center. Provides long-term, professional psychological support to fellow students — embodying care and companionship through listening and being present.">
+             经系统化专业培训后被聘为校级"暖心使者"（朋辈心理咨询师），长期为在校同学提供专业、可靠的心理支持服务，在倾听与陪伴中践行关怀与奉献的价值。
+          </p>
+          <div class="tech-stack"><span>心理咨询</span><span>朋辈辅导</span><span>志愿公益</span></div>
+        </div>
+        <img src="nxsz.jpg" loading="lazy" alt="暖心使者证书" class="peer-img" style="border-radius:8px;border:1px solid var(--border);cursor:pointer" onclick="openLightbox(this.src)">
       </div>
 
       <!-- ===== 未完待续 ===== -->
