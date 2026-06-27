@@ -336,8 +336,16 @@
     <p class="tagline" data-zh="应用物理学（强基计划）· 北京航空航天大学" data-en="Applied Physics · Beihang University">应用物理学（强基计划）· 北京航空航天大学</p>
     <p class="subtitle" data-zh="物理学院 / 大二在读" data-en="School of Physics / Sophomore">物理学院 / 大二在读</p>
     <div class="hero-btns">
-      <a class="btn btn-primary" href="郭云翔简历.pdf" target="_blank" rel="noopener" data-zh="📄 查看最新简历" data-en="📄 View Latest Resume">📄 查看最新简历</a>
-      <a class="btn btn-outline" href="郭云翔简历.pdf" download="郭云翔-个人简历.pdf" data-zh="⬇️ 下载最新简历" data-en="⬇️ Download Latest Resume">⬇️ 下载最新简历</a>
+      <details class="resume-history">
+        <summary class="btn btn-primary" data-zh="📄 最新简历" data-en="📄 Latest Resume">📄 最新简历</summary>
+        <div class="resume-history-menu">
+          <div class="resume-version-title" data-zh="当前版本" data-en="Current Version">当前版本</div>
+          <div class="resume-version-actions">
+            <a href="郭云翔简历.pdf" target="_blank" rel="noopener" data-zh="查看" data-en="View">查看</a>
+            <a href="郭云翔简历.pdf" download="郭云翔-个人简历.pdf" data-zh="下载" data-en="Download">下载</a>
+          </div>
+        </div>
+      </details>
       <details class="resume-history">
         <summary class="btn btn-outline" data-zh="🕘 历史版本" data-en="🕘 Resume History">🕘 历史版本</summary>
         <div class="resume-history-menu">
@@ -667,16 +675,26 @@
   })();
 
   // ===== Resume History Menu =====
-  const resumeHistory = document.querySelector('.resume-history');
-  if (resumeHistory) {
+  const resumeMenus = document.querySelectorAll('.resume-history');
+  if (resumeMenus.length) {
     document.addEventListener('click', event => {
-      if (resumeHistory.open && !resumeHistory.contains(event.target)) {
-        resumeHistory.removeAttribute('open');
-      }
+      resumeMenus.forEach(menu => {
+        if (menu.open && !menu.contains(event.target)) menu.removeAttribute('open');
+      });
     });
 
-    resumeHistory.querySelectorAll('.resume-history-menu a').forEach(link => {
-      link.addEventListener('click', () => resumeHistory.removeAttribute('open'));
+    resumeMenus.forEach(menu => {
+      menu.addEventListener('toggle', () => {
+        if (menu.open) {
+          resumeMenus.forEach(other => {
+            if (other !== menu) other.removeAttribute('open');
+          });
+        }
+      });
+
+      menu.querySelectorAll('.resume-history-menu a').forEach(link => {
+        link.addEventListener('click', () => menu.removeAttribute('open'));
+      });
     });
   }
 
