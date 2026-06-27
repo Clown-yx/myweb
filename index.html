@@ -109,6 +109,20 @@
       border: 1px solid rgba(255,255,255,0.3);
     }
     .btn-outline:hover { border-color: var(--accent2); color: var(--accent2); }
+    .resume-history { position: relative; }
+    .resume-history summary { list-style: none; }
+    .resume-history summary::-webkit-details-marker { display: none; }
+    .resume-history[open] summary { border-color: var(--accent2); color: var(--accent2); }
+    .resume-history-menu {
+      position: absolute; top: calc(100% + 10px); left: 50%; transform: translateX(-50%);
+      min-width: 230px; padding: 10px; border: 1px solid var(--border); border-radius: 12px;
+      background: rgba(20,20,35,0.98); box-shadow: 0 14px 40px rgba(0,0,0,0.35); z-index: 10;
+    }
+    .resume-history-menu a {
+      display: block; padding: 10px 12px; border-radius: 8px; color: var(--text);
+      font-size: 0.86rem; text-align: left; text-decoration: none; transition: var(--transition);
+    }
+    .resume-history-menu a:hover { background: rgba(255,255,255,0.07); color: var(--accent2); }
     .scroll-hint {
       margin-top: 48px; font-size: 0.8rem; color: var(--text-secondary);
       animation: bounce 2s infinite;
@@ -275,6 +289,11 @@
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .hero h1 { font-size: 2rem; }
+      .resume-history { width: 100%; }
+      .resume-history-menu {
+        position: static; transform: none; width: min(260px, calc(100vw - 48px));
+        margin: 10px auto 0;
+      }
       .about-grid { grid-template-columns: 1fr; }
       .projects-grid { grid-template-columns: 1fr; }
       .projects-row { grid-template-columns: 1fr; }
@@ -312,7 +331,13 @@
     <p class="tagline" data-zh="应用物理学（强基计划）· 北京航空航天大学" data-en="Applied Physics · Beihang University">应用物理学（强基计划）· 北京航空航天大学</p>
     <p class="subtitle" data-zh="物理学院 / 大二在读" data-en="School of Physics / Sophomore">物理学院 / 大二在读</p>
     <div class="hero-btns">
-      <a class="btn btn-primary" href="p-bio/GuoYunxiang-Resume.pdf" download data-zh="📄 下载简历" data-en="📄 Download Resume">📄 下载简历</a>
+      <a class="btn btn-primary" href="郭云翔简历.pdf" target="_blank" rel="noopener" data-zh="📄 查看最新简历" data-en="📄 View Latest Resume">📄 查看最新简历</a>
+      <details class="resume-history">
+        <summary class="btn btn-outline" data-zh="🕘 历史版本" data-en="🕘 Resume History">🕘 历史版本</summary>
+        <div class="resume-history-menu">
+          <a href="p-bio/GuoYunxiang-Resume.pdf" target="_blank" rel="noopener" data-zh="上一版 · 查看简历" data-en="Previous Version · View Resume">上一版 · 查看简历</a>
+        </div>
+      </details>
       <a class="btn btn-outline" href="#contact" data-zh="✉️ 联系我" data-en="✉️ Contact Me">✉️ 联系我</a>
     </div>
     <div class="scroll-hint" data-zh="↓ 向下滚动了解更多" data-en="↓ Scroll down to explore">↓ 向下滚动了解更多</div>
